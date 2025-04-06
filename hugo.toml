@@ -1,0 +1,10 @@
+baseURL = 'https://onlyc2c.com/'
+languageCode = 'en-us'
+title = 'OnlyC2C'
+
+# theme = "hugo-book"
+
+[markup]
+    [markup.tableOfContents]
+        startLevel = 2
+        endLevel = 4
