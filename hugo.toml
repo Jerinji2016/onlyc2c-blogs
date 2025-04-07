@@ -4,6 +4,10 @@ title = 'OnlyC2C'
 
 # theme = "hugo-book"
 
+[taxonomies]
+    tag = "tags"
+    category = "categories"
+
 [markup]
     [markup.tableOfContents]
         startLevel = 2

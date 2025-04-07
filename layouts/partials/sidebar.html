@@ -1,0 +1,12 @@
+<nav>
+    <h2>Pages</h2>
+    <ul>
+        {{ range .Site.Pages }}
+        {{ if and (not .IsHome) (and (ne .Title "Categories") (ne .Title "Tags")) }}
+        <li>
+            <a href='{{ .RelPermalink }}'>{{ .Title }}</a>
+        </li>
+        {{ end }}
+        {{ end }}
+    </ul>
+</nav>
