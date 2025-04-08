@@ -1,5 +1,10 @@
+<!-- Logo only shown on mobile -->
+<div class="mobile-logo-container">
+    {{ partial "logo.html" . }}
+</div>
+
 <nav>
-    <h2>OnlyC2C</h2>
+    <h2 class="desktop-title">OnlyC2C</h2>
     <ul>
         {{ range .Site.Pages }}
         {{ if and (not .IsHome) (and (ne .Title "Categories") (ne .Title "Tags")) }}
