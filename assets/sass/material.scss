@@ -66,6 +66,8 @@ p {
     padding: 1rem 2rem;
     box-shadow: var(--elevation-1);
     border-bottom: 1px solid var(--header-border);
+    position: relative;
+    z-index: 1000;
 
     .header-content {
         display: flex;
@@ -73,6 +75,11 @@ p {
         align-items: center;
         max-width: 1200px;
         margin: 0 auto;
+    }
+
+    .header-left {
+        display: flex;
+        align-items: center;
     }
 
     .logo {
@@ -103,6 +110,82 @@ p {
         display: flex;
         align-items: center;
     }
+
+    // Hamburger menu button
+    .menu-toggle {
+        display: none; // Hidden by default, shown on mobile
+        background: none;
+        border: none;
+        width: 40px;
+        height: 40px;
+        padding: 0.5rem;
+        margin-right: 1rem;
+        cursor: pointer;
+        position: relative;
+        border-radius: var(--border-radius-sm);
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .menu-icon {
+            display: block;
+            position: relative;
+            width: 24px;
+            height: 2px;
+            background-color: var(--text-color);
+            transition: background-color 0.3s ease;
+
+            &:before, &:after {
+                content: '';
+                position: absolute;
+                width: 24px;
+                height: 2px;
+                background-color: var(--text-color);
+                transition: transform 0.3s ease;
+            }
+
+            &:before {
+                top: -8px;
+            }
+
+            &:after {
+                bottom: -8px;
+            }
+        }
+
+        &[aria-expanded="true"] {
+            .menu-icon {
+                background-color: transparent;
+
+                &:before {
+                    transform: rotate(45deg) translate(5px, 5px);
+                }
+
+                &:after {
+                    transform: rotate(-45deg) translate(5px, -5px);
+                }
+            }
+        }
+    }
+
+    @media (max-width: 767px) {
+        padding: 0.75rem 1rem;
+
+        .menu-toggle {
+            display: block;
+        }
+
+        .logo {
+            img {
+                max-height: 40px;
+            }
+
+            .tagline {
+                display: none;
+            }
+        }
+    }
 }
 
 // Main container - Paper UI
@@ -113,6 +196,25 @@ p {
     overflow: hidden;
     gap: 1.5rem;
     padding: 1.5rem;
+    position: relative;
+
+    // Drawer overlay
+    .drawer-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 900;
+        opacity: 0;
+        transition: opacity var(--transition-duration) var(--transition-timing);
+
+        &.visible {
+            opacity: 1;
+        }
+    }
 
     // Paper UI cards for sidebar and TOC
     .sidebar,
@@ -160,6 +262,26 @@ p {
         }
     }
 
+    // Sidebar close button
+    .sidebar-close {
+        display: none;
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--text-color);
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+    }
+
     // Paper UI main content area
     .content {
         background: var(--content-background);
@@ -173,6 +295,70 @@ p {
             margin: 0 auto;
         }
     }
+
+    // Mobile styles
+    @media (max-width: 767px) {
+        grid-template-columns: 1fr;
+        grid-template-areas: "content";
+        padding: 1rem;
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 280px;
+            z-index: 1000;
+            transform: translateX(-100%);
+            transition: transform var(--transition-duration) var(--transition-timing);
+            border-radius: 0;
+            margin: 0;
+            padding-top: 3rem;
+            overflow-y: auto;
+
+            &.open {
+                transform: translateX(0);
+                box-shadow: var(--elevation-3);
+            }
+
+            .sidebar-close {
+                display: block;
+            }
+        }
+
+        .toc {
+            display: none;
+        }
+
+        .content {
+            grid-area: content;
+            padding: 1.5rem;
+        }
+    }
+}
+
+// Drawer overlay
+.drawer-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 900;
+    opacity: 0;
+    transition: opacity var(--transition-duration) var(--transition-timing);
+
+    &.visible {
+        display: block;
+        opacity: 1;
+    }
+}
+
+// Prevent body scrolling when drawer is open
+body.drawer-open {
+    overflow: hidden;
 }
 
 // Paper UI links

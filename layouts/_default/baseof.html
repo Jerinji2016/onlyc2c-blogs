@@ -8,8 +8,14 @@
 <body>
     {{ partial "header.html" . }}
 
+    <!-- Drawer overlay for mobile -->
+    <div id="drawer-overlay" class="drawer-overlay"></div>
+
     <div class="container">
         <aside class="sidebar">
+            <button id="sidebar-close" class="sidebar-close" aria-label="Close sidebar">
+                <span>&times;</span>
+            </button>
             {{ partial "sidebar.html" . }}
         </aside>
 
@@ -22,8 +28,12 @@
         </aside>
     </div>
 
-    {{ $js := resources.Get "js/theme-toggle.js" | resources.Minify | resources.Fingerprint }}
-    <script src="{{ $js.Permalink }}"></script>
+    <!-- Load JavaScript -->
+    {{ $themeToggleJs := resources.Get "js/theme-toggle.js" | resources.Minify | resources.Fingerprint }}
+    <script src="{{ $themeToggleJs.Permalink }}"></script>
+
+    {{ $drawerJs := resources.Get "js/drawer.js" | resources.Minify | resources.Fingerprint }}
+    <script src="{{ $drawerJs.Permalink }}"></script>
 </body>
 
 </html>
