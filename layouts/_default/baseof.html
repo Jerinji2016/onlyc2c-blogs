@@ -6,6 +6,8 @@
 </head>
 
 <body>
+    {{ partial "header.html" . }}
+
     <div class="container">
         <aside class="sidebar">
             {{ partial "sidebar.html" . }}
@@ -19,6 +21,9 @@
             {{ partial "toc.html" . }}
         </aside>
     </div>
+
+    {{ $js := resources.Get "js/theme-toggle.js" | resources.Minify | resources.Fingerprint }}
+    <script src="{{ $js.Permalink }}"></script>
 </body>
 
 </html>
