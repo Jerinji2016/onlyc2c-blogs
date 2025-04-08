@@ -113,15 +113,34 @@ a {
     border-radius: 50%;
     color: var(--header-text);
     background-color: transparent;
-    transition: transform var(--transition-duration) var(--transition-timing);
+    transition: all var(--transition-duration) var(--transition-timing);
     margin-left: 1rem;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &:hover {
         transform: scale(1.1);
+        background-color: rgba(255, 255, 255, 0.1);
     }
 
     &:focus {
         outline: none;
         box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+    }
+
+    &.theme-toggle-spin {
+        animation: spin 0.3s ease-in-out;
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
     }
 }
