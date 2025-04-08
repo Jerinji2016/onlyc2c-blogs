@@ -1,5 +1,5 @@
-// Mobile drawer functionality
-document.addEventListener('DOMContentLoaded', () => {
+// Mobile drawer component
+export const initDrawer = () => {
   const menuButton = document.getElementById('menu-toggle');
   const closeButton = document.getElementById('sidebar-close');
   const drawer = document.querySelector('.sidebar');
@@ -59,4 +59,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Log for debugging
   console.log('Drawer functionality initialized');
-});
+};

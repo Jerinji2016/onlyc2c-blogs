@@ -29,11 +29,8 @@
     </div>
 
     <!-- Load JavaScript -->
-    {{ $themeToggleJs := resources.Get "js/theme-toggle.js" | resources.Minify | resources.Fingerprint }}
-    <script src="{{ $themeToggleJs.Permalink }}"></script>
-
-    {{ $drawerJs := resources.Get "js/drawer.js" | resources.Minify | resources.Fingerprint }}
-    <script src="{{ $drawerJs.Permalink }}"></script>
+    {{ $mainJs := resources.Get "js/main.js" | js.Build | resources.Minify | resources.Fingerprint }}
+    <script src="{{ $mainJs.Permalink }}" type="module"></script>
 </body>
 
 </html>

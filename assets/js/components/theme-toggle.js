@@ -1,5 +1,5 @@
-// Theme toggle functionality
-document.addEventListener('DOMContentLoaded', () => {
+// Theme toggle component
+export const initThemeToggle = () => {
   const themeToggle = document.getElementById('theme-toggle');
 
   // Check for saved theme preference or use the system preference
@@ -51,4 +51,4 @@ document.addEventListener('DOMContentLoaded', () => {
       applyTheme(newTheme);
     });
   }
-});
+};
