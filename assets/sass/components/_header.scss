@@ -1,0 +1,105 @@
+// Header styles - Paper UI
+.header {
+    background-color: var(--header-background);
+    color: var(--header-text);
+    padding: 1rem 2rem;
+    box-shadow: var(--elevation-1);
+    border-bottom: 1px solid var(--header-border);
+    position: relative;
+    z-index: 1000;
+
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .header-left {
+        display: flex;
+        align-items: center;
+    }
+
+    .header-right {
+        display: flex;
+        align-items: center;
+    }
+
+    // Hamburger menu button
+    .menu-toggle {
+        display: none; // Hidden by default, shown on mobile
+        background: none;
+        border: none;
+        width: 40px;
+        height: 40px;
+        padding: 0.5rem;
+        margin-right: 1rem;
+        cursor: pointer;
+        position: relative;
+        border-radius: var(--border-radius-sm);
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .menu-icon {
+            display: block;
+            position: relative;
+            width: 24px;
+            height: 2px;
+            background-color: var(--text-color);
+            transition: background-color 0.3s ease;
+
+            &:before,
+            &:after {
+                content: '';
+                position: absolute;
+                width: 24px;
+                height: 2px;
+                background-color: var(--text-color);
+                transition: transform 0.3s ease;
+            }
+
+            &:before {
+                top: -8px;
+            }
+
+            &:after {
+                bottom: -8px;
+            }
+        }
+
+        &[aria-expanded="true"] {
+            .menu-icon {
+                background-color: transparent;
+
+                &:before {
+                    transform: rotate(45deg) translate(5px, 5px);
+                }
+
+                &:after {
+                    transform: rotate(-45deg) translate(5px, -5px);
+                }
+            }
+        }
+    }
+
+    @media (max-width: 767px) {
+        padding: 0.75rem 1rem;
+
+        .menu-toggle {
+            display: block;
+        }
+
+        .logo {
+            img {
+                max-height: 40px;
+            }
+
+            .tagline {
+                display: none;
+            }
+        }
+    }
+}

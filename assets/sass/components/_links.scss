@@ -1,0 +1,30 @@
+// Paper UI links
+a {
+    text-decoration: none;
+    color: var(--link-color);
+    font-weight: 500;
+    position: relative;
+
+    &:hover {
+        text-decoration: none;
+        color: var(--accent-color);
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 2px;
+        bottom: -2px;
+        left: 0;
+        background-color: var(--accent-color);
+        transform-origin: bottom right;
+        transition: transform var(--transition-duration) var(--transition-timing);
+    }
+
+    &:hover:after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
+}

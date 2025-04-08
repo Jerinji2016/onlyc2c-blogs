@@ -1,0 +1,29 @@
+// Paper UI table styles
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+    border-radius: var(--border-radius-sm);
+    overflow: hidden;
+    box-shadow: var(--elevation-1);
+
+    th,
+    td {
+        padding: 0.75rem 1rem;
+        text-align: left;
+        border-bottom: 1px solid var(--header-border);
+    }
+
+    th {
+        background-color: rgba(0, 0, 0, 0.03);
+        font-weight: 500;
+    }
+
+    tr:last-child td {
+        border-bottom: none;
+    }
+
+    tr:hover td {
+        background-color: rgba(0, 0, 0, 0.02);
+    }
+}

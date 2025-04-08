@@ -1,0 +1,13 @@
+// Paper UI card component
+.card {
+    background: var(--card-background);
+    border-radius: var(--border-radius-md);
+    padding: 1.5rem;
+    box-shadow: var(--elevation-1);
+    margin-bottom: 1.5rem;
+    transition: box-shadow var(--transition-duration) var(--transition-timing);
+
+    &:hover {
+        box-shadow: var(--elevation-2);
+    }
+}

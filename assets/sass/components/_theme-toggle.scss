@@ -1,0 +1,77 @@
+// Paper UI theme toggle button
+#theme-toggle {
+    background: var(--card-background);
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    color: var(--text-color);
+    box-shadow: var(--elevation-1);
+    transition: all var(--transition-duration) var(--transition-timing);
+    margin-left: 1rem;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--accent-color);
+        border-radius: 50%;
+        transform: scale(0);
+        transition: transform var(--transition-duration) var(--transition-timing);
+        z-index: -1;
+    }
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--elevation-2);
+        color: #fff;
+
+        &:before {
+            transform: scale(1);
+        }
+    }
+
+    &:active {
+        transform: translateY(0);
+        box-shadow: var(--elevation-1);
+    }
+
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px var(--accent-color), var(--elevation-1);
+    }
+
+    &.theme-toggle-spin {
+        animation: spin 0.3s ease-in-out;
+    }
+
+    &.theme-dark {
+        color: #fff;
+    }
+
+    &.theme-light {
+        color: var(--text-color);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,37 @@
+// Main container - Paper UI
+.container {
+    display: grid;
+    grid-template-columns: 250px 1fr 250px;
+    height: calc(100vh - 90px);
+    /* Adjust for header height */
+    overflow: hidden;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    position: relative;
+
+    // Paper UI main content area
+    .content {
+        background: var(--content-background);
+        padding: 2rem;
+        border-radius: var(--border-radius-md);
+        box-shadow: var(--elevation-1);
+        overflow-y: auto;
+
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    }
+
+    // Mobile styles
+    @media (max-width: 767px) {
+        grid-template-columns: 1fr;
+        grid-template-areas: "content";
+        padding: 1rem;
+
+        .content {
+            grid-area: content;
+            padding: 1.5rem;
+        }
+    }
+}
