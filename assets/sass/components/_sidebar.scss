@@ -5,8 +5,9 @@
     border-radius: var(--border-radius-md);
     padding: 1.5rem;
     box-shadow: var(--elevation-1);
-    overflow: hidden;
+    overflow-y: auto; // Make both sidebar and TOC independently scrollable
     line-height: 1.5;
+    max-height: 100%; // Ensure they don't exceed container height
 
     // Mobile logo container (hidden on desktop)
     .mobile-logo-container {

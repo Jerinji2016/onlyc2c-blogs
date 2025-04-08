@@ -5,8 +5,10 @@
     padding: 1rem 2rem;
     box-shadow: var(--elevation-1);
     border-bottom: 1px solid var(--header-border);
-    position: relative;
+    position: sticky;
+    top: 0;
     z-index: 1000;
+    flex-shrink: 0; // Prevent header from shrinking
 
     .header-content {
         display: flex;
