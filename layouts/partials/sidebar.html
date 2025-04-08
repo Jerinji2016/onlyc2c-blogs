@@ -8,8 +8,8 @@
     <ul>
         {{ range .Site.Pages }}
         {{ if and (not .IsHome) (and (ne .Title "Categories") (ne .Title "Tags")) }}
-        <li>
-            <a href='{{ .RelPermalink }}'>{{ .Title }}</a>
+        <li{{ if eq $.Page.RelPermalink .RelPermalink }} class="active"{{ end }}>
+            <a href='{{ .RelPermalink }}'{{ if eq $.Page.RelPermalink .RelPermalink }} class="active"{{ end }}>{{ .Title }}</a>
         </li>
         {{ end }}
         {{ end }}
