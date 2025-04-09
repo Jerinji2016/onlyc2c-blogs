@@ -1,0 +1,181 @@
+// Home page styles
+.home-container {
+    max-width: 100%;
+    margin: 0 auto;
+
+    // Hero section
+    .hero {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5rem;
+        gap: 3rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+        @media (max-width: 767px) {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .hero-content {
+            flex: 1;
+
+            h1 {
+                font-size: 3rem;
+                margin-bottom: 1rem;
+                color: var(--accent-color);
+            }
+
+            .tagline {
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
+                font-weight: 500;
+            }
+
+            .hero-description {
+                font-size: 1.1rem;
+                margin-bottom: 2rem;
+                line-height: 1.6;
+            }
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                max-width: 100%;
+                height: auto;
+                border-radius: var(--border-radius-md);
+                box-shadow: var(--elevation-2);
+            }
+        }
+    }
+
+    // Featured posts section
+    .featured-posts {
+        margin-bottom: 5rem;
+        padding-bottom: 2rem;
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 0.5rem;
+
+            &:after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 100px;
+                height: 3px;
+                background-color: var(--accent-color);
+                border-radius: 3px;
+            }
+        }
+    }
+
+    // About section
+    .about-section {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        margin-bottom: 5rem;
+        background-color: rgba(0, 0, 0, 0.02);
+        border-radius: var(--border-radius-md);
+        padding: 3rem;
+        box-shadow: var(--elevation-1);
+
+        @media (max-width: 767px) {
+            flex-direction: column-reverse;
+            text-align: center;
+        }
+
+        .about-content {
+            flex: 1.5;
+
+            h2 {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+                color: var(--accent-color);
+            }
+
+            p {
+                font-size: 1.1rem;
+                margin-bottom: 1rem;
+                line-height: 1.6;
+            }
+        }
+
+        .about-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                max-width: 100%;
+                height: auto;
+                border-radius: var(--border-radius-md);
+                box-shadow: var(--elevation-2);
+            }
+        }
+    }
+
+    // Call to action section
+    .cta-section {
+        text-align: center;
+        padding: 3rem 2rem;
+        background-color: rgba(33, 150, 243, 0.08);
+        border-radius: var(--border-radius-md);
+        margin-bottom: 2rem;
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+    }
+}
+
+// CTA button
+.cta-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--accent-color);
+    color: white;
+    border-radius: var(--border-radius-sm);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all var(--transition-duration) var(--transition-timing);
+    box-shadow: var(--elevation-1);
+
+    &:hover {
+        background-color: darken(#2196f3, 10%);
+        box-shadow: var(--elevation-2);
+        transform: translateY(-2px);
+    }
+}
+
+// Card grid for featured posts and blog list
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-bottom: 3rem;
+
+    @media (max-width: 767px) {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+}

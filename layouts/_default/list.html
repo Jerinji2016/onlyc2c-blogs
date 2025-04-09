@@ -1,11 +1,58 @@
 {{ define "main" }}
-<h1>{{ .Title }}</h1>
-<ul>
-    {{ range .Pages }}
-    <li>
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        <small>— {{ .Date.Format "Jan 2, 2006" }}</small>
-    </li>
+<div class="blog-list-container">
+    <header class="page-header">
+        <h1>{{ .Title }}</h1>
+        {{ if eq .Title "Blog Categories" }}
+        <p class="page-description">Explore our collection of articles on Corp-to-Corp consulting, organized by topic.
+        </p>
+        {{ else }}
+        <p class="page-description">
+            Discover insights, tips, and best practices for successful Corp-to-Corprelationships.
+        </p>
+        {{ end }}
+    </header>
+
+    <div class="card-grid blog-list">
+        {{ range .Pages }}
+        <div class="card blog-card">
+            <div class="card-image">
+                {{ if .Params.image }}
+                <img src="{{ .Params.image }}" alt="{{ .Title }}" />
+                {{ else }}
+                <img src="/images/default-post.png" alt="{{ .Title }}" />
+                {{ end }}
+            </div>
+            <div class="card-content">
+                <h2 class="card-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+                <div class="card-meta">
+                    <span class="date">{{ .Date.Format "Jan 2, 2006" }}</span>
+                    {{ if .Params.categories }}
+                    <span class="categories">
+                        {{ range .Params.categories }}
+                        <a href="/categories/{{ . | urlize }}/" class="category-tag">{{ . }}</a>
+                        {{ end }}
+                    </span>
+                    {{ end }}
+                </div>
+                <p class="card-excerpt">
+                    {{ if .Description }}
+                    {{ .Description }}
+                    {{ else }}
+                    {{ .Summary | truncate 160 }}
+                    {{ end }}
+                </p>
+                <a href="{{ .RelPermalink }}" class="read-more">Read More →</a>
+            </div>
+        </div>
+        {{ end }}
+    </div>
+
+    {{ if eq (len .Pages) 0 }}
+    <div class="empty-state">
+        <img src="/images/empty-state.png" alt="No posts yet" />
+        <h2>No posts yet</h2>
+        <p>Check back soon for new content!</p>
+    </div>
     {{ end }}
-</ul>
+</div>
 {{ end }}

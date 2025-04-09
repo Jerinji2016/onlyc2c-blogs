@@ -1,0 +1,77 @@
+{{ define "main" }}
+<div class="home-container">
+    <!-- Hero section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>OnlyC2C</h1>
+            <p class="tagline">Your Ultimate Resource for Corp-to-Corp Consulting</p>
+            <p class="hero-description">
+                Navigate the world of C2C consulting with expert advice, practical tips, and industry insights.
+                Whether you're a consultant or a hiring manager, we've got you covered.
+            </p>
+            <a href="/avoid_7_mistakes/" class="cta-button">Read Our Latest Post</a>
+        </div>
+        <div class="hero-image">
+            <img src="/images/hero-image.png" alt="Corp to Corp Consulting" />
+        </div>
+    </section>
+
+    <!-- Featured posts section -->
+    <section class="featured-posts">
+        <h2>Featured Articles</h2>
+        <div class="card-grid">
+            {{ range first 3 .Pages }}
+            <div class="card">
+                <div class="card-image">
+                    {{ if .Params.image }}
+                    <img src="{{ .Params.image }}" alt="{{ .Title }}" />
+                    {{ else }}
+                    <img src="/images/default-post.png" alt="{{ .Title }}" />
+                    {{ end }}
+                </div>
+                <div class="card-content">
+                    <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+                    <div class="card-meta">
+                        <span class="date">{{ .Date.Format "Jan 2, 2006" }}</span>
+                    </div>
+                    <p class="card-excerpt">
+                        {{ if .Description }}
+                        {{ .Description }}
+                        {{ else }}
+                        {{ .Summary | truncate 120 }}
+                        {{ end }}
+                    </p>
+                    <a href="{{ .RelPermalink }}" class="read-more">Read More →</a>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+    </section>
+
+    <!-- About section -->
+    <section class="about-section">
+        <div class="about-content">
+            <h2>About OnlyC2C</h2>
+            <p>
+                OnlyC2C is dedicated to helping professionals navigate the complex world of Corp-to-Corp consulting.
+                Our mission is to provide clear, actionable advice that helps both consultants and hiring managers
+                succeed in the C2C ecosystem.
+            </p>
+            <p>
+                With years of industry experience, our team delivers insights on compliance, best practices,
+                and strategies to maximize the benefits of C2C relationships.
+            </p>
+        </div>
+        <div class="about-image">
+            <img src="/images/about-image.png" alt="About OnlyC2C" />
+        </div>
+    </section>
+
+    <!-- Call to action -->
+    <section class="cta-section">
+        <h2>Ready to Master Corp-to-Corp?</h2>
+        <p>Explore our comprehensive guides and expert advice</p>
+        <a href="/categories/" class="cta-button">Browse All Topics</a>
+    </section>
+</div>
+{{ end }}
