@@ -1,6 +1,8 @@
 <div class="logo">
     <a href="/">
-        <img src="/images/onlyc2c-logo-light.png" alt="OnlyC2C Logo" class="logo-light">
-        <img src="/images/onlyc2c-logo-dark.png" alt="OnlyC2C Logo" class="logo-dark">
+        {{ $logoLight := resources.Get "images/onlyc2c-logo-light.png" }}
+        <img src="{{ $logoLight.RelPermalink }}" alt="OnlyC2C Logo" class="logo-light">
+        {{ $logoDark := resources.Get "images/onlyc2c-logo-dark.png" }}
+        <img src="{{ $logoDark.RelPermalink }}" alt="OnlyC2C Logo" class="logo-dark">
     </a>
 </div>

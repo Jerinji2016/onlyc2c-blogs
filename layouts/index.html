@@ -12,7 +12,8 @@
             <a href="/avoid_7_mistakes/" class="cta-button">Read Our Latest Post</a>
         </div>
         <div class="hero-image">
-            <img src="/images/hero-image.png" alt="Corp to Corp Consulting" />
+            {{ $heroImage := resources.Get "images/hero-image.png" }}
+            <img src="{{ $heroImage.RelPermalink }}" alt="Corp to Corp Consulting" />
         </div>
     </section>
 
@@ -26,7 +27,8 @@
                     {{ if .Params.image }}
                     <img src="{{ .Params.image }}" alt="{{ .Title }}" />
                     {{ else }}
-                    <img src="/images/default-post.png" alt="{{ .Title }}" />
+                    {{ $defaultImage := resources.Get "images/default-post.png" }}
+                    <img src="{{ $defaultImage.RelPermalink }}" alt="{{ .Title }}" />
                     {{ end }}
                 </div>
                 <div class="card-content">
@@ -63,7 +65,8 @@
             </p>
         </div>
         <div class="about-image">
-            <img src="/images/about-image.png" alt="About OnlyC2C" />
+            {{ $aboutImage := resources.Get "images/about-image.png" }}
+            <img src="{{ $aboutImage.RelPermalink }}" alt="About OnlyC2C" />
         </div>
     </section>
 

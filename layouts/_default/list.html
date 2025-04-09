@@ -19,7 +19,8 @@
                 {{ if .Params.image }}
                 <img src="{{ .Params.image }}" alt="{{ .Title }}" />
                 {{ else }}
-                <img src="/images/default-post.png" alt="{{ .Title }}" />
+                {{ $defaultImage := resources.Get "images/default-post.png" }}
+                <img src="{{ $defaultImage.RelPermalink }}" alt="{{ .Title }}" />
                 {{ end }}
             </div>
             <div class="card-content">
@@ -49,7 +50,8 @@
 
     {{ if eq (len .Pages) 0 }}
     <div class="empty-state">
-        <img src="/images/empty-state.png" alt="No posts yet" />
+        {{ $emptyStateImage := resources.Get "images/empty-state.png" }}
+        <img src="{{ $emptyStateImage.RelPermalink }}" alt="No posts yet" />
         <h2>No posts yet</h2>
         <p>Check back soon for new content!</p>
     </div>
