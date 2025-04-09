@@ -1,0 +1,9 @@
+baseURL = 'http://localhost:1313/'
+# Development-specific settings
+buildDrafts = true
+buildFuture = true
+buildExpired = true
+
+# Enable more verbose output for debugging
+verbose = true
+debug = true

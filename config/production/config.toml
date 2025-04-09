@@ -1,0 +1,15 @@
+baseURL = 'https://onlyc2c.com/'
+# Production-specific settings
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+
+# Enable minification for production
+[minify]
+  disableCSS = false
+  disableHTML = false
+  disableJS = false
+  disableJSON = false
+  disableSVG = false
+  disableXML = false
+  minifyOutput = true

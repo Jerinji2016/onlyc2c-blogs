@@ -1,0 +1,23 @@
+baseURL = 'https://onlyc2c-blogs-git-main-akcs.vercel.app/'
+# Staging-specific settings
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+
+# Enable some debugging features in staging
+verbose = true
+debug = true
+
+# Enable minification but with some debugging options
+[minify]
+  disableCSS = false
+  disableHTML = false
+  disableJS = false
+  disableJSON = false
+  disableSVG = false
+  disableXML = false
+  minifyOutput = true
+  
+  [minify.tdewolff]
+    [minify.tdewolff.html]
+      keepComments = true  # Keep HTML comments for debugging
