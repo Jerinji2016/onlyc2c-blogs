@@ -1,4 +1,4 @@
-baseURL = 'https://onlyc2c-blogs-git-main-akcs.vercel.app/'
+baseURL = 'https://jerinji2016.github.io/onlyc2c-blogs/'
 # Staging-specific settings
 buildDrafts = false
 buildFuture = false
