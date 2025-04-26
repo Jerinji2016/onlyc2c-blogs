@@ -5,17 +5,17 @@
         padding-left: 0;
         margin-left: 0;
     }
-    
+
     li {
         margin-bottom: 0.5rem;
         font-size: 0.95rem;
-        
+
         ul {
             padding-left: 1rem;
             margin-top: 0.5rem;
         }
     }
-    
+
     a {
         display: block;
         padding: 0.25rem 0.5rem;
@@ -23,31 +23,31 @@
         color: var(--text-color);
         text-decoration: none;
         transition: all var(--transition-duration) var(--transition-timing);
-        
+
         &:hover {
             background-color: rgba(0, 0, 0, 0.03);
             color: var(--accent-color);
             text-decoration: none;
         }
-        
+
         &.active {
-            background-color: rgba(33, 150, 243, 0.08);
+            background-color: rgba(5, 102, 141, 0.08);
             color: var(--accent-color);
             font-weight: 500;
             border-left: 3px solid var(--accent-color);
             padding-left: calc(0.5rem - 3px);
         }
     }
-    
+
     // Style for different heading levels
     .toc-h2 {
         font-weight: 500;
     }
-    
+
     .toc-h3 {
         padding-left: 1rem;
     }
-    
+
     .toc-h4 {
         padding-left: 2rem;
         font-size: 0.9rem;

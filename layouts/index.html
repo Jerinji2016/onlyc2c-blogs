@@ -12,7 +12,7 @@
             <a href="/avoid_7_mistakes/" class="cta-button">Read Our Latest Post</a>
         </div>
         <div class="hero-image">
-            {{ $heroImage := resources.Get "images/hero-image.png" }}
+            {{ $heroImage := resources.Get "images/hero-image.jpg" }}
             <img src="{{ $heroImage.RelPermalink }}" alt="Corp to Corp Consulting" />
         </div>
     </section>
@@ -27,7 +27,7 @@
                     {{ if .Params.image }}
                     <img src="{{ .Params.image }}" alt="{{ .Title }}" />
                     {{ else }}
-                    {{ $defaultImage := resources.Get "images/default-post.png" }}
+                    {{ $defaultImage := resources.Get "images/default-post.jpg" }}
                     <img src="{{ $defaultImage.RelPermalink }}" alt="{{ .Title }}" />
                     {{ end }}
                 </div>
@@ -36,13 +36,6 @@
                     <div class="card-meta">
                         <span class="date">{{ .Date.Format "Jan 2, 2006" }}</span>
                     </div>
-                    <p class="card-excerpt">
-                        {{ if .Description }}
-                        {{ .Description }}
-                        {{ else }}
-                        {{ .Summary | truncate 120 }}
-                        {{ end }}
-                    </p>
                     <a href="{{ .RelPermalink }}" class="read-more">Read More →</a>
                 </div>
             </div>

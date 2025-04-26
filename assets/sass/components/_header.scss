@@ -2,7 +2,8 @@
 .header {
     background-color: var(--header-background);
     color: var(--header-text);
-    padding: 1rem 2rem;
+    height: 4rem;
+    padding: 0 2rem;
     box-shadow: var(--elevation-1);
     border-bottom: 1px solid var(--header-border);
     position: sticky;
@@ -16,6 +17,7 @@
         align-items: center;
         max-width: 1200px;
         margin: 0 auto;
+        height: 100%;
     }
 
     .header-left {
@@ -26,6 +28,43 @@
     .header-right {
         display: flex;
         align-items: center;
+    }
+
+    // Header buttons
+    .header-button {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        border-radius: var(--border-radius-sm);
+        text-decoration: none;
+        font-weight: 500;
+        transition: all var(--transition-duration) var(--transition-timing);
+        margin-left: 1rem;
+
+        &:after {
+            display: none;
+        }
+
+        &.primary {
+            background-color: var(--accent-color);
+            color: white;
+            box-shadow: var(--elevation-1);
+
+            &:hover {
+                background-color: darken(#05668D, 10%);
+                color: white;
+                box-shadow: var(--elevation-2);
+                transform: translateY(-2px);
+            }
+        }
+
+        &.secondary {
+            background-color: transparent;
+            color: var(--text-color);
+
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.05);
+            }
+        }
     }
 
     // Hamburger menu button
@@ -101,6 +140,31 @@
 
             .tagline {
                 display: none;
+            }
+        }
+
+        .header-button {
+            &.secondary {
+                display: none;
+            }
+        }
+    }
+
+    // Dark theme adjustments
+    [data-theme="dark"] & {
+        .header-button {
+            &.primary {
+                &:hover {
+                    color: white;
+                }
+            }
+
+            &.secondary {
+                color: var(--text-color);
+
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.1);
+                }
             }
         }
     }

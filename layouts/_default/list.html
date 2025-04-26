@@ -19,7 +19,7 @@
                 {{ if .Params.image }}
                 <img src="{{ .Params.image }}" alt="{{ .Title }}" />
                 {{ else }}
-                {{ $defaultImage := resources.Get "images/default-post.png" }}
+                {{ $defaultImage := resources.Get "images/default-post.jpg" }}
                 <img src="{{ $defaultImage.RelPermalink }}" alt="{{ .Title }}" />
                 {{ end }}
             </div>
@@ -35,13 +35,6 @@
                     </span>
                     {{ end }}
                 </div>
-                <p class="card-excerpt">
-                    {{ if .Description }}
-                    {{ .Description }}
-                    {{ else }}
-                    {{ .Summary | truncate 160 }}
-                    {{ end }}
-                </p>
                 <a href="{{ .RelPermalink }}" class="read-more">Read More →</a>
             </div>
         </div>
@@ -50,7 +43,7 @@
 
     {{ if eq (len .Pages) 0 }}
     <div class="empty-state">
-        {{ $emptyStateImage := resources.Get "images/empty-state.png" }}
+        {{ $emptyStateImage := resources.Get "images/empty-state.jpg" }}
         <img src="{{ $emptyStateImage.RelPermalink }}" alt="No posts yet" />
         <h2>No posts yet</h2>
         <p>Check back soon for new content!</p>

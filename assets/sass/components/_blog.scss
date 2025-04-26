@@ -110,14 +110,14 @@
             .category-tag {
                 display: inline-block;
                 padding: 0.25rem 0.5rem;
-                background-color: rgba(33, 150, 243, 0.1);
+                background-color: rgba(5, 102, 141, 0.1);
                 color: var(--accent-color);
                 border-radius: var(--border-radius-sm);
                 text-decoration: none;
                 transition: all var(--transition-duration) var(--transition-timing);
 
                 &:hover {
-                    background-color: rgba(33, 150, 243, 0.2);
+                    background-color: rgba(5, 102, 141, 0.2);
                 }
             }
         }
@@ -140,7 +140,7 @@
             align-items: center;
 
             &:hover {
-                color: darken(#2196f3, 10%);
+                color: darken(#05668D, 10%);
                 transform: translateX(5px);
             }
         }

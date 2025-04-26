@@ -131,7 +131,7 @@
     .cta-section {
         text-align: center;
         padding: 3rem 2rem;
-        background-color: rgba(33, 150, 243, 0.08);
+        background-color: rgba(5, 102, 141, 0.08);
         border-radius: var(--border-radius-md);
         margin-bottom: 2rem;
 
@@ -161,7 +161,8 @@
     box-shadow: var(--elevation-1);
 
     &:hover {
-        background-color: darken(#2196f3, 10%);
+        background-color: darken(#05668D, 10%);
+        color: white;
         box-shadow: var(--elevation-2);
         transform: translateY(-2px);
     }

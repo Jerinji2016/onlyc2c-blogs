@@ -1,12 +1,12 @@
 // Paper UI Theme variables
 :root {
   // Light theme colors (default)
-  --background-color: #f5f7fa;
+  --background-color: #f0f2f5;
   --content-background: #ffffff;
   --text-color: #37474f;
   --text-secondary: #607d8b;
-  --link-color: #2196f3;
-  --accent-color: #2196f3;
+  --link-color: #05668D;
+  --accent-color: #05668D;
   --sidebar-background: #ffffff;
   --header-background: #ffffff;
   --header-text: #37474f;
@@ -31,17 +31,17 @@
 
 // Dark theme colors - Paper UI Dark
 [data-theme="dark"] {
-  --background-color: #121212;
-  --content-background: #1e1e1e;
+  --background-color: #121a24;
+  --content-background: #1a2332;
   --text-color: #eceff1;
   --text-secondary: #b0bec5;
-  --link-color: #64b5f6;
-  --accent-color: #64b5f6;
-  --sidebar-background: #1e1e1e;
-  --header-background: #1e1e1e;
+  --link-color: #0582b3;
+  --accent-color: #0582b3;
+  --sidebar-background: #1a2332;
+  --header-background: #1a2332;
   --header-text: #eceff1;
-  --header-border: #333333;
-  --card-background: #262626;
+  --header-border: #2c3a4f;
+  --card-background: #1e2738;
 
   // Paper UI elevation shadows for dark theme
   --elevation-1: 0 1px 3px rgba(0, 0, 0, 0.24), 0 1px 2px rgba(0, 0, 0, 0.32);

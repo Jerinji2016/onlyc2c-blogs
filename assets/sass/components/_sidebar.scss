@@ -51,7 +51,8 @@
         }
 
         &.active {
-            background-color: rgba(33, 150, 243, 0.08);
+            background-color: rgba(5, 102, 141, 0.08);
+            font-weight: 500;
         }
 
         a {
@@ -156,4 +157,26 @@
 // Prevent body scrolling when drawer is open
 body.drawer-open {
     overflow: hidden;
+}
+
+// Dark theme adjustments
+[data-theme="dark"] {
+    .sidebar,
+    .toc {
+        li {
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.05);
+            }
+
+            &.active {
+                background-color: rgba(5, 130, 179, 0.1);
+            }
+        }
+    }
+
+    .sidebar-close {
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+    }
 }
