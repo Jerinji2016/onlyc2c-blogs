@@ -6,12 +6,83 @@
 <nav>
     <h2 class="desktop-title">Navigation</h2>
     <ul>
+        <!-- Get all categories -->
+        {{ $categories := slice }}
         {{ range .Site.Pages }}
-        {{ if and (not .IsHome) (and (ne .Title "Categories") (ne .Title "Tags")) }}
-        <li{{ if eq $.Page.RelPermalink .RelPermalink }} class="active"{{ end }}>
-            <a href='{{ .RelPermalink }}'{{ if eq $.Page.RelPermalink .RelPermalink }} class="active"{{ end }}>{{ .Title }}</a>
-        </li>
+            {{ with .Params.categories }}
+                {{ range . }}
+                    {{ $categories = $categories | append . }}
+                {{ end }}
+            {{ end }}
         {{ end }}
+        {{ $categories = uniq $categories | sort }}
+
+        <!-- Pages with categories -->
+        {{ range $categories }}
+            {{ $category := . }}
+            {{ $hasCurrentPage := false }}
+            {{ $categoryPages := slice }}
+
+            <!-- Check if current page is in this category and collect category pages -->
+            {{ range $.Site.Pages }}
+                {{ if and (not .IsHome) (and (ne .Title "Categories") (ne .Title "Tags")) }}
+                    {{ $hasThisCategory := false }}
+                    {{ range .Params.categories }}
+                        {{ if eq . $category }}
+                            {{ $hasThisCategory = true }}
+                        {{ end }}
+                    {{ end }}
+                    {{ if and $hasThisCategory (eq $.Page.RelPermalink .RelPermalink) }}
+                        {{ $hasCurrentPage = true }}
+                    {{ end }}
+                    {{ if $hasThisCategory }}
+                        {{ $categoryPages = $categoryPages | append . }}
+                    {{ end }}
+                {{ end }}
+            {{ end }}
+
+            <li class="category">
+                <button class="dropdown-toggle" aria-expanded="{{ if $hasCurrentPage }}true{{ else }}false{{ end }}">{{ $category }}</button>
+                <ul class="dropdown-content{{ if $hasCurrentPage }} expanded{{ end }}">
+                    {{ range $categoryPages }}
+                        <li{{ if eq $.Page.RelPermalink .RelPermalink }} class="active"{{ end }}>
+                            <a href='{{ .RelPermalink }}'{{ if eq $.Page.RelPermalink .RelPermalink }} class="active"{{ end }}>{{ .Title }}</a>
+                        </li>
+                    {{ end }}
+                </ul>
+            </li>
+        {{ end }}
+
+        <!-- Pages without categories -->
+        {{ $uncategorizedPages := slice }}
+        {{ range .Site.Pages }}
+            {{ if and (not .IsHome) (and (ne .Title "Categories") (ne .Title "Tags")) }}
+                {{ if not .Params.categories }}
+                    {{ $uncategorizedPages = $uncategorizedPages | append . }}
+                {{ end }}
+            {{ end }}
+        {{ end }}
+
+        {{ if gt (len $uncategorizedPages) 0 }}
+            {{ $hasCurrentUncategorizedPage := false }}
+
+            <!-- Check if current page is in uncategorized pages -->
+            {{ range $uncategorizedPages }}
+                {{ if eq $.Page.RelPermalink .RelPermalink }}
+                    {{ $hasCurrentUncategorizedPage = true }}
+                {{ end }}
+            {{ end }}
+
+            <li class="category">
+                <button class="dropdown-toggle" aria-expanded="{{ if $hasCurrentUncategorizedPage }}true{{ else }}false{{ end }}">Other Pages</button>
+                <ul class="dropdown-content{{ if $hasCurrentUncategorizedPage }} expanded{{ end }}">
+                    {{ range $uncategorizedPages }}
+                        <li{{ if eq $.Page.RelPermalink .RelPermalink }} class="active"{{ end }}>
+                            <a href='{{ .RelPermalink }}'{{ if eq $.Page.RelPermalink .RelPermalink }} class="active"{{ end }}>{{ .Title }}</a>
+                        </li>
+                    {{ end }}
+                </ul>
+            </li>
         {{ end }}
     </ul>
 </nav>
