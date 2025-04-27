@@ -1,6 +1,10 @@
 ---
 title: 💼 The Ultimate Guide to Corp to Corp (C2C)
+description: "A comprehensive guide to understanding Corp to Corp (C2C) contracting - covering everything from basic concepts to tax implications, ideal for both tech consultants and recruiters seeking clarity on C2C relationships."
+image: "/thumbnails/thumb-ultimate-guide.jpg"
 weight: 1
+date: 2023-09-15
+categories: ["Fundamentals"]
 ---
 
 *For Tech Consultants & Recruiters Who Just Want Straight Answers*  

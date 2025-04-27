@@ -1,6 +1,10 @@
 ---
 title: 🤝 From First Contact to Close | How to Build Trust in a C2C Relationship
+description: "Master the art of building lasting C2C relationships with practical tips for both recruiters and candidates. Learn proven strategies for transparent communication, efficient onboarding, and maintaining professional trust throughout the contract lifecycle."
+image: "/thumbnails/from-contract-to.jpg"
 weight: 4
+date: 2023-09-15
+categories: ["Best Practices", "Trust & Compliance"]
 ---
 
 *A Guide for Both Recruiters and Candidates Who Want to Stop Ghosting Each Other*  

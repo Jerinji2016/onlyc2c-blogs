@@ -1,6 +1,10 @@
 ---
 title: "📈 C2C Market Trends 2025: Rates, Hot Skills, and Remote Opportunities"
+description: "Stay ahead of the curve with our comprehensive analysis of C2C market rates, in-demand skills, and remote work trends for 2025. Essential insights for consultants planning their next move and recruiters building their talent strategy."
+image: "/thumbnails/c2c-market-trends.jpg"
 weight: 1
+date: 2023-09-15
+categories: ["Market & Trends"]
 ---
 
 *What Every Consultant and Recruiter Should Know This Year*  

@@ -1,10 +1,10 @@
 ---
 title: "💸 Avoid These 7 Mistakes in Corp to Corp Hiring—#5 Could Cost You Thousands"
+description: "Learn how to avoid costly mistakes when hiring Corp-to-Corp consultants. From misclassification to tax implications, these tips will save you time and money."
+image: "/thumbnails/avoid-7-mistakes.jpg"
 weight: 2
 date: 2023-09-15
-image: "/assets/images/default-post.png"
-categories: ["Hiring", "Compliance", "Best Practices"]
-description: "Learn how to avoid costly mistakes when hiring Corp-to-Corp consultants. From misclassification to tax implications, these tips will save you time and money."
+categories: ["Trust & Compliance"]
 ---
 
 > _"Hiring C2C consultants is easy..."_

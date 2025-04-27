@@ -1,6 +1,9 @@
 ---
 title: 🚀 How to Make Your C2C Resume Stand Out
+description: "Transform your C2C resume from invisible to irresistible with proven strategies for consultants. Learn how to highlight your business value, craft compelling project descriptions, and optimize your LinkedIn presence for maximum recruiter attention."
+image: "/thumbnails/make-resume-standout.jpg"
 weight: 2
+categories: ["Career Growth"]
 ---
 
 *Even If You're Getting Ignored Right Now*  
