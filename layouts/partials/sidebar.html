@@ -6,6 +6,11 @@
 <nav>
     <h2 class="desktop-title">Navigation</h2>
     <ul>
+        <!-- Home link at the top -->
+        <li {{ if .IsHome }} class="active"{{ end }}>
+            <a href="/" {{ if .IsHome }}class="active"{{ end }}>Home</a>
+        </li>
+
         <!-- Get all categories -->
         {{ $categories := slice }}
         {{ range .Site.Pages }}
