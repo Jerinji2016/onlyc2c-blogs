@@ -18,6 +18,51 @@ export const initThemeToggle = () => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
 
+    // Apply theme directly to footer
+    const footer = document.querySelector('.footer');
+    if (footer) {
+      if (theme === 'dark') {
+        footer.style.backgroundColor = '#0d1520';
+
+        // Toggle logo visibility
+        const logoLight = footer.querySelector('.logo-light');
+        const logoDark = footer.querySelector('.logo-dark');
+
+        if (logoLight) logoLight.style.display = 'none';
+        if (logoDark) logoDark.style.display = 'block';
+
+        // Update text colors
+        const headings = footer.querySelectorAll('h3');
+        headings.forEach(h => h.style.color = '#eceff1');
+
+        const links = footer.querySelectorAll('a');
+        links.forEach(a => a.style.color = '#b0bec5');
+
+        const paragraphs = footer.querySelectorAll('p');
+        paragraphs.forEach(p => p.style.color = '#b0bec5');
+
+      } else {
+        footer.style.backgroundColor = '#1e2730';
+
+        // Toggle logo visibility
+        const logoLight = footer.querySelector('.logo-light');
+        const logoDark = footer.querySelector('.logo-dark');
+
+        if (logoLight) logoLight.style.display = 'block';
+        if (logoDark) logoDark.style.display = 'none';
+
+        // Update text colors
+        const headings = footer.querySelectorAll('h3');
+        headings.forEach(h => h.style.color = '#ffffff');
+
+        const links = footer.querySelectorAll('a');
+        links.forEach(a => a.style.color = '#e0e0e0');
+
+        const paragraphs = footer.querySelectorAll('p');
+        paragraphs.forEach(p => p.style.color = '#e0e0e0');
+      }
+    }
+
     // Update toggle button icon
     if (themeToggle) {
       // Show sun icon (☀️) when in dark mode (indicating clicking will switch to light)

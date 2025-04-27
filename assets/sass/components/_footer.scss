@@ -1,18 +1,12 @@
 // Footer styles - Paper UI
 .footer {
-    background-color: #1e2730; // Dark background for footer
-    color: #ffffff;
+    background-color: #1e2730; // Default footer background
+    color: #ffffff; // Default footer text color
     padding: 3rem 2rem 1.5rem;
     flex-shrink: 0; // Prevent footer from shrinking
     width: 100%;
     box-sizing: border-box;
     position: relative; // Needed for proper stacking
-
-    // Don't apply dark theme to footer
-    [data-theme="dark"] & {
-        background-color: #1e2730;
-        color: #ffffff;
-    }
 
     .footer-content {
         display: flex;
@@ -135,6 +129,57 @@
         .footer-section {
             width: 100%;
             min-width: auto;
+        }
+    }
+}
+
+// Dark theme styles for footer
+html[data-theme="dark"] .footer {
+    background-color: #0d1520;
+
+    .logo-light {
+        display: none;
+    }
+
+    .logo-dark {
+        display: block;
+    }
+
+    .footer-section {
+        h3 {
+            color: #eceff1;
+        }
+
+        a {
+            color: #b0bec5;
+
+            &:hover {
+                color: #eceff1;
+            }
+        }
+
+        .footer-logo {
+            .tagline {
+                color: #b0bec5;
+            }
+        }
+
+        .footer-address {
+            color: #b0bec5;
+        }
+    }
+
+    .footer-bottom {
+        p {
+            color: #b0bec5;
+        }
+
+        a {
+            color: #b0bec5;
+
+            &:hover {
+                color: #eceff1;
+            }
         }
     }
 }
