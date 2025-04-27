@@ -1,5 +1,8 @@
 // Table of Contents styles
 .toc {
+    // Ensure TOC takes full height of its container
+    height: 100%;
+
     ul {
         list-style-type: none;
         padding-left: 0;

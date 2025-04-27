@@ -7,7 +7,10 @@
     box-shadow: var(--elevation-1);
     overflow-y: auto; // Make both sidebar and TOC independently scrollable
     line-height: 1.5;
-    max-height: 100%; // Ensure they don't exceed container height
+    height: 100%; // Make them take full height of their grid cell
+    display: flex;
+    flex-direction: column; // Stack content vertically
+    align-self: stretch; // Stretch to fill the grid cell
 
     // Mobile logo container (hidden on desktop)
     .mobile-logo-container {
