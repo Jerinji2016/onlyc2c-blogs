@@ -4,7 +4,7 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow: hidden; // Prevent scrolling on the body
+    overflow-x: hidden; // Prevent horizontal scrolling
 }
 
 body {
@@ -17,7 +17,9 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     display: flex;
-    flex-direction: column; // Stack header and container vertically
+    flex-direction: column; // Stack header, container, and footer vertically
+    height: 100vh; // Full viewport height
+    overflow-y: auto; // Enable scrolling on body
 }
 
 // Apply smooth transitions for theme changes
@@ -28,6 +30,7 @@ a,
 .toc,
 .content,
 .header,
+.footer,
 #theme-toggle,
 .card,
 button {

@@ -3,7 +3,7 @@
     display: grid;
     grid-template-columns: 250px 1fr 250px;
     flex: 1; // Fill remaining space in the flex container (body)
-    overflow: hidden;
+    min-height: calc(100vh - 4rem); // Full viewport height minus header height
     gap: 1.5rem;
     padding: 1.5rem;
     position: relative;
@@ -15,6 +15,7 @@
         padding: 2rem;
         border-radius: var(--border-radius-md);
         box-shadow: var(--elevation-1);
+        height: 100%;
         overflow-y: auto;
 
         article {

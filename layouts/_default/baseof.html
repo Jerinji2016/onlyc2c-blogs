@@ -28,6 +28,9 @@
         </aside>
     </div>
 
+    <!-- Footer -->
+    {{ partial "footer.html" . }}
+
     <!-- Load JavaScript -->
     {{ $mainJs := resources.Get "js/main.js" | js.Build | resources.Minify | resources.Fingerprint }}
     <script src="{{ $mainJs.Permalink }}" type="module"></script>

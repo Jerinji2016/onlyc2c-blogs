@@ -1,0 +1,51 @@
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <div class="footer-logo">
+                <a href="https://onlyc2c.com">
+                    {{ $logoLight := resources.Get "images/onlyc2c-logo-light.png" }}
+                    <img src="{{ $logoLight.RelPermalink }}" alt="OnlyC2C Logo" class="logo-light">
+                    {{ $logoDark := resources.Get "images/onlyc2c-logo-dark.png" }}
+                    <img src="{{ $logoDark.RelPermalink }}" alt="OnlyC2C Logo" class="logo-dark">
+                </a>
+            </div>
+            <p class="footer-address">
+                5858 Blackshire Path<br>
+                STE B-2<br>
+                Inver Grove Heights, MN 55076<br>
+                onlyc2cpbs@gmail.com
+            </p>
+        </div>
+
+        <div class="footer-section">
+            <h3>For Job Seekers</h3>
+            <ul>
+                <li><a href="https://onlyc2c.com/browse-jobs">Browse Jobs</a></li>
+                <li><a href="https://onlyc2c.com/browse-companies">Browse Companies</a></li>
+                <li><a href="https://onlyc2c.com/career-advice">Career Advice</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>For Employers</h3>
+            <ul>
+                <li><a href="https://onlyc2c.com/post-job">Post a Job</a></li>
+                <li><a href="https://onlyc2c.com/pricing">Pricing</a></li>
+                <li><a href="https://onlyc2c.com/resources">Resources</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Contact</h3>
+            <ul>
+                <li><a href="https://onlyc2c.com/about-us">About Us</a></li>
+                <li><a href="https://onlyc2c.com/contact-us">Contact Us</a></li>
+                <li><a href="https://onlyc2c.com/support">Support</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© {{ now.Format "2006" }} Onlyc2c. All rights reserved. <a href="https://onlyc2c.com/terms">Terms and Conditions</a> | <a href="https://onlyc2c.com/privacy">Privacy Policy</a></p>
+    </div>
+</footer>
