@@ -1,0 +1,81 @@
+name: Submit Sitemap to Google
+
+on:
+  # Run after the deployment workflow completes
+  workflow_run:
+    workflows: ["Deployment"]
+    types:
+      - completed
+    branches: ["main"]
+
+  # Allow manual triggering
+  workflow_dispatch:
+
+jobs:
+  submit-sitemap:
+    runs-on: ubuntu-latest
+    # Only run if the deployment was successful
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install googleapis@126 --no-save
+
+      - name: Submit sitemap to Google
+        run: |
+          node -e '
+          const { google } = require("googleapis");
+
+          async function submitSitemap() {
+            try {
+              // Authenticate with Google using credentials from repository variable
+              const credentials = JSON.parse(process.env.GCS_CREDENTIALS_FILE);
+              const auth = new google.auth.GoogleAuth({
+                credentials,
+                scopes: ["https://www.googleapis.com/auth/webmasters"]
+              });
+
+              const client = await auth.getClient();
+              const searchconsole = google.searchconsole({
+                version: "v1",
+                auth: client
+              });
+
+              // Get the site URL from environment variables or use a default
+              const siteUrl = "sc-domain:onlyc2c.com";
+              const sitemapUrl = "https://blog.onlyc2c.com/sitemap.xml";
+
+              console.log(`Submitting sitemap: ${sitemapUrl} for site: ${siteUrl}`);
+
+              // Submit the sitemap
+              const response = await searchconsole.sitemaps.submit({
+                siteUrl: siteUrl,
+                feedpath: sitemapUrl
+              });
+
+              console.log("Sitemap submitted successfully:", response.data);
+            } catch (error) {
+              console.error("Error submitting sitemap:", error.message);
+
+              if (error.response) {
+                console.error("Response data:", error.response.data);
+                console.error("Response status:", error.response.status);
+              }
+
+              process.exit(1);
+            }
+          }
+
+          submitSitemap();
+          '
+        env:
+          NODE_ENV: production
+          GCS_CREDENTIALS_FILE: ${{ secrets.GCS_CREDENTIALS_FILE }}
