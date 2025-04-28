@@ -1,4 +1,6 @@
-# OnlyC2C Blogs ![Deployment](https://github.com/OnlyC2C/onlyc2c-blogs/actions/workflows/hugo.yml/badge.svg)
+# OnlyC2C Blogs  
+
+![Deployment](https://github.com/OnlyC2C/onlyc2c-blogs/actions/workflows/deploy.yml/badge.svg)
 
 Hugo project for Blogs content managememt for onlyc2c
 
