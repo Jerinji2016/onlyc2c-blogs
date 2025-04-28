@@ -1,4 +1,4 @@
-baseURL = 'https://onlyc2c.com/'
+baseURL = 'https://blog.onlyc2c.com/'
 # Production-specific settings
 buildDrafts = false
 buildFuture = false
