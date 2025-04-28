@@ -1,6 +1,6 @@
 # OnlyC2C Blogs  
 
-![Deployment](https://github.com/OnlyC2C/onlyc2c-blogs/actions/workflows/deploy.yml/badge.svg)
+![Deployment](https://github.com/OnlyC2C/onlyc2c-blogs/actions/workflows/deploy.yml/badge.svg) ![Sitemap Submission](https://github.com/OnlyC2C/onlyc2c-blogs/actions/workflows/sitemap.yml/badge.svg)
 
 Hugo project for Blogs content managememt for onlyc2c
 
