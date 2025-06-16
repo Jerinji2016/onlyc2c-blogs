@@ -10,3 +10,4 @@
 {{/*  <link rel="stylesheet" href="/css/main.css">  */}}
 {{ $style := resources.Get "sass/main.scss" | css.Sass | resources.Minify | resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $style.Permalink }}">
+<script defer data-domain="onlyc2c.com" src="https://plausible.io/js/script.js"></script>
